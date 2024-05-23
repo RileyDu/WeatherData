@@ -45,6 +45,7 @@ async function getWeatherData() {
       message
       wind_speed
       wind_direction
+      percent_humidity
     }
   }
      

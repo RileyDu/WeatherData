@@ -87,6 +87,12 @@ const Dashboard = () => {
             <Text>
               <strong>Wind Direction:</strong> {weather.wind_direction}°
             </Text>
+            <Text>
+              <strong>Rain:</strong> {weather.rain_15_min_inches} inches
+            </Text>
+            <Text>
+              <strong>Pressure:</strong> {weather.barometric_pressure} hPa
+            </Text>
             <Button mt={2} onClick={() => handleEditClick(weather)}>
               Edit
             </Button>
