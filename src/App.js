@@ -7,12 +7,14 @@ import {
   Link,
   VStack,
   Code,
+  GridItem,
+  theme,
   Grid,
 
 } from '@chakra-ui/react';
 import { SaasProvider } from '@saas-ui/react';
 
-import { theme } from './Styling/theme';
+// import { theme } from './Styling/theme';
 
 // Files Import
 import Dashboard from './Frontend/Dashboard';

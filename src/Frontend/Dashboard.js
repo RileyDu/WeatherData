@@ -63,17 +63,17 @@ const Dashboard = () => {
       <Heading as="h1" mb={4} size="2xl">
         Weather Data
       </Heading>
-      <Divider mb={4} />
+      <Divider mb={4} borderColor='black' borderWidth={2} borderRadius={4} />
       {weatherData.length === 0 ? (
         <Text>Loading...</Text>
       ) : (
         <Grid templateColumns="repeat(5, 1fr)" gap={4}>
           {weatherData.map((weather, index) => (
             <GridItem key={index} >
-            <Box p={4} shadow="md" borderWidth="1px" background={index % 2 === 0 ? 'gray.100' : 'gray.200'}>
+            <Box p={4} shadow="md" borderWidth="1px" background={index % 2 === 0 ? 'gray.100' : 'gray.300'} borderRadius={4}>
                 <Heading as="h2" size="md">
                   {weather.station.name}
-                  <Divider mb={2} />
+                  <Divider mb={2} borderColor='black' borderWidth={1} borderRadius={4} />
                 </Heading>
                 <Text>
                   <strong>Timestamp:</strong> {convertUnixToCST(weather.ts)}

@@ -4,7 +4,14 @@ import { theme as glassTheme } from '@saas-ui/theme-glass'
 
 export const theme = extendTheme(
   {
-    // your overrides
+    Text: {
+      baseStyle: {
+        fontFamily: 'Inter',
+        fontWeight: '400',
+        fontSize: '14px',
+        lineHeight: '20px',
+      },
+    },
   },
   glassTheme,
   baseTheme
