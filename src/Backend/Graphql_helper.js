@@ -43,7 +43,8 @@ async function getWeatherData() {
       rain_15_min_inches
       barometric_pressure
       message
-      
+      wind_speed
+      wind_direction
     }
   }
      
