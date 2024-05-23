@@ -60,9 +60,10 @@ const Dashboard = () => {
 
   return (
 <Box p={4}>
-      <Heading as="h1" mb={4}>
+      <Heading as="h1" mb={4} size="2xl">
         Weather Data
       </Heading>
+      <Divider mb={4} />
       {weatherData.length === 0 ? (
         <Text>Loading...</Text>
       ) : (
