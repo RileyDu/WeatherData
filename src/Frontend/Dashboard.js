@@ -1,6 +1,6 @@
 // Libraries import
 import React, { useState, useEffect } from 'react';
-import { Box, Heading, Text, Button, useDisclosure } from '@chakra-ui/react';
+import { Box, Heading, Text, Button, useDisclosure, Grid, GridItem, Divider } from '@chakra-ui/react';
 
 // Files import
 import { getWeatherData, editWeatherData } from '../Backend/Graphql_helper';
@@ -59,45 +59,52 @@ const Dashboard = () => {
   };
 
   return (
-    <Box p={4}>
+<Box p={4}>
       <Heading as="h1" mb={4}>
         Weather Data
       </Heading>
       {weatherData.length === 0 ? (
         <Text>Loading...</Text>
       ) : (
-        weatherData.map((weather, index) => (
-          <Box key={index} p={4} shadow="md" borderWidth="1px" mb={4}>
-            <Heading as="h2" size="md">
-              {weather.station.name}
-            </Heading>
-            <Text>
-              <strong>Timestamp:</strong> {convertUnixToCST(weather.ts)}
-            </Text>
-            <Text>
-              <strong>Temperature:</strong>
-              {weather.temperature}°C
-            </Text>
-            <Text>
-              <strong>Humidity:</strong> {weather.percent_humidity}%
-            </Text>
-            <Text>
-              <strong>Wind Speed:</strong> {weather.wind_speed} m/s
-            </Text>
-            <Text>
-              <strong>Wind Direction:</strong> {weather.wind_direction}°
-            </Text>
-            <Text>
-              <strong>Rain:</strong> {weather.rain_15_min_inches} inches
-            </Text>
-            <Text>
-              <strong>Pressure:</strong> {weather.barometric_pressure} hPa
-            </Text>
-            <Button mt={2} onClick={() => handleEditClick(weather)}>
-              Edit
-            </Button>
-          </Box>
-        ))
+        <Grid templateColumns="repeat(5, 1fr)" gap={4}>
+          {weatherData.map((weather, index) => (
+            <GridItem key={index}>
+              <Box p={4} shadow="md" borderWidth="1px">
+                <Heading as="h2" size="md">
+                  {weather.station.name}
+                </Heading>
+                <Text>
+                  <strong>Timestamp:</strong> {convertUnixToCST(weather.ts)}
+                </Text>
+                <Text>
+                  <strong>Temperature:</strong> {weather.temperature}°C
+                </Text>
+                <Text>
+                  <strong>Humidity:</strong> {weather.percent_humidity}%
+                </Text>
+                <Text>
+                  <strong>Wind Speed:</strong> {weather.wind_speed} m/s
+                </Text>
+                <Text>
+                  <strong>Wind Direction:</strong> {weather.wind_direction}°
+                </Text>
+                <Text>
+                  <strong>Rain:</strong> {weather.rain_15_min_inches} inches
+                </Text>
+                <Text>
+                  <strong>Pressure:</strong> {weather.barometric_pressure} hPa
+                </Text>
+                <Divider mt={2} mb={2} />
+                <Button mt={2} onClick={() => handleEditClick(weather)}>
+                  Edit
+                </Button>
+                <Button mt={2} ml={2} colorScheme="red" onClick={() => handleEditClick(weather)}>
+                  Delete
+                </Button>
+              </Box>
+            </GridItem>
+          ))}
+        </Grid>
       )}
       {selectedWeather && (
         <WeatherEditModal
