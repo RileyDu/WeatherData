@@ -8,8 +8,11 @@ import {
   VStack,
   Code,
   Grid,
-  theme,
+
 } from '@chakra-ui/react';
+import { SaasProvider } from '@saas-ui/react';
+
+import { theme } from './Styling/theme';
 
 // Files Import
 import Dashboard from './Frontend/Dashboard';

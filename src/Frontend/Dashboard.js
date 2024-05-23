@@ -59,7 +59,7 @@ const Dashboard = () => {
   };
 
   return (
-<Box p={4}>
+<Box p={4} height="100vh" background={'blue.100'}>
       <Heading as="h1" mb={4} size="2xl">
         Weather Data
       </Heading>
@@ -69,10 +69,11 @@ const Dashboard = () => {
       ) : (
         <Grid templateColumns="repeat(5, 1fr)" gap={4}>
           {weatherData.map((weather, index) => (
-            <GridItem key={index}>
-              <Box p={4} shadow="md" borderWidth="1px">
+            <GridItem key={index} >
+            <Box p={4} shadow="md" borderWidth="1px" background={index % 2 === 0 ? 'gray.100' : 'gray.200'}>
                 <Heading as="h2" size="md">
                   {weather.station.name}
+                  <Divider mb={2} />
                 </Heading>
                 <Text>
                   <strong>Timestamp:</strong> {convertUnixToCST(weather.ts)}
@@ -80,16 +81,16 @@ const Dashboard = () => {
                 <Text>
                   <strong>Temperature:</strong> {weather.temperature}°C
                 </Text>
-                <Text>
+                <Text color={weather.percent_humidity < 85 ? 'green.500' : 'red.500'}>
                   <strong>Humidity:</strong> {weather.percent_humidity}%
                 </Text>
-                <Text>
+                <Text color={weather.wind_speed < 5 ? 'green.500' : 'red.500'}>
                   <strong>Wind Speed:</strong> {weather.wind_speed} m/s
                 </Text>
                 <Text>
                   <strong>Wind Direction:</strong> {weather.wind_direction}°
                 </Text>
-                <Text>
+                <Text color={weather.rain_15_min_inches < 0.5 ? 'green.500' : 'red.500'}>
                   <strong>Rain:</strong> {weather.rain_15_min_inches} inches
                 </Text>
                 <Text>
