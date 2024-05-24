@@ -34,6 +34,20 @@ export default function TemperatureGraph() {
     return date.toLocaleString('en-US', options);
   };
 
+  const getBackgroundColor = (temperature) => {
+    if (temperature >= 30) {
+      return "red"; // Hot temperatures
+    } else if (temperature >= 25) {
+      return "orange"; // Warm temperatures
+    } else if (temperature >= 20) {
+      return "yellow"; // Mild temperatures
+    } else if (temperature >= 15) {
+      return "yellowgreen"; // Cool temperatures
+    } else {
+      return "green"; // Cold temperatures
+    }
+  };
+
   const temperatureData = weatherData.map((dataPoint) => dataPoint.temperature);
   const maxTemp = Math.max(...temperatureData);
   const minTemp = Math.min(...temperatureData);
@@ -44,8 +58,8 @@ export default function TemperatureGraph() {
       {
         label: 'Temperature',
         data: weatherData.map((dataPoint) => dataPoint.temperature),
-        borderColor: theme.colors.blue[500],
-        backgroundColor: theme.colors.blue[300],
+        borderColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.temperature)),
+        backgroundColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.temperature)),
       },
     ],
   };

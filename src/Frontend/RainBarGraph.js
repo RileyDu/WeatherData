@@ -81,6 +81,7 @@ export default function RainGraph() {
         label: 'Rainfall',
         data: weatherData.map((dataPoint) => dataPoint.rain_15_min_inches),
         backgroundColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.rain_15_min_inches)),
+        borderColor: 'black',
       },
     ],
   };
