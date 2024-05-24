@@ -5,6 +5,7 @@ import { Box, Heading, Text, Button, useDisclosure, Grid, GridItem, Divider } fr
 // Files import
 import { getWeatherData, editWeatherData } from '../Backend/Graphql_helper';
 import WeatherEditModal from './WeatherEditModal';
+import RainBarGraph from './RainBarGraph';
 
 
 const Dashboard = () => {
@@ -59,7 +60,7 @@ const Dashboard = () => {
   };
 
   return (
-<Box p={4} height="100vh" background={'blue.100'}>
+<Box p={4} background={'blue.100'}>
       <Heading as="h1" mb={4} size="2xl">
         Weather Data
       </Heading>
@@ -97,10 +98,10 @@ const Dashboard = () => {
                   <strong>Pressure:</strong> {weather.barometric_pressure} hPa
                 </Text>
                 <Divider mt={2} mb={2} />
-                <Button mt={2} onClick={() => handleEditClick(weather)}>
+                <Button mt={2} backgroundColor={'orange.300'} onClick={() => handleEditClick(weather)}>
                   Edit
                 </Button>
-                <Button mt={2} ml={2} colorScheme="red" onClick={() => handleEditClick(weather)}>
+                <Button mt={2} ml={2} backgroundColor="red.300" onClick={() => handleEditClick(weather)}>
                   Delete
                 </Button>
               </Box>
@@ -117,6 +118,9 @@ const Dashboard = () => {
           fetchData={fetchData}
         />
       )}
+        <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
+
+      <RainBarGraph />
     </Box>
   );
 };
