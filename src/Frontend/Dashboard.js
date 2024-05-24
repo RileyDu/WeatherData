@@ -7,6 +7,7 @@ import { getWeatherData, editWeatherData } from '../Backend/Graphql_helper';
 import WeatherEditModal from './WeatherEditModal';
 import RainBarGraph from './RainBarGraph';
 import TemperatureGraph from './TempLineGraph';
+import HumidityGraph from './HumidityGradientGraph';
 
 
 const Dashboard = () => {
@@ -124,6 +125,8 @@ const Dashboard = () => {
       <RainBarGraph />
       <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
       <TemperatureGraph />
+      <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
+      <HumidityGraph />
 
     </Box>
   );

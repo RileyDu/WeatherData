@@ -49,20 +49,24 @@ export default function RainGraph() {
   };
   
   const getBackgroundColor = (value) => {
-    if (value > 0.05) {
+    if (value >= 0.09) {
       return theme.colors.blue[900];
-    } else if (value > 0.04) {
+    } else if (value >= 0.08) {
       return theme.colors.blue[800];
-    } else if (value > 0.03) {
+    } else if (value >= 0.07) {
       return theme.colors.blue[700];
-    } else if (value > 0.02) {
+    } else if (value >= 0.06) {
       return theme.colors.blue[600];
-    } else if (value > 0.01) {
+    } else if (value >= 0.05) {
       return theme.colors.blue[500];
-    } else if (value > 0.5) {
+    } else if (value >= 0.04) {
       return theme.colors.blue[400];
-    } else {
+    } else if (value >= 0.03) {
       return theme.colors.blue[300];
+    } else if (value >= 0.02) {
+      return theme.colors.blue[200];
+    } else if (value >= 0.01) {
+      return theme.colors.blue[100];
     }
   };
 
