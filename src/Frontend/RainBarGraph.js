@@ -97,7 +97,7 @@ export default function RainGraph() {
       },
       title: {
         display: true,
-        text: 'Rainfall Over Time',
+        text: 'Rainfall Over The Past Hour',
       },
     },
   };
