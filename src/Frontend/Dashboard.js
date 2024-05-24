@@ -1,6 +1,6 @@
 // Libraries import
 import React, { useState, useEffect } from 'react';
-import { Box, Heading, Text, Button, useDisclosure, Grid, GridItem, Divider } from '@chakra-ui/react';
+import { Box, Heading, Text, Button, useDisclosure, Grid, GridItem, Divider, Card, Flex } from '@chakra-ui/react';
 
 // Files import
 import { getWeatherData, editWeatherData } from '../Backend/Graphql_helper';
@@ -121,13 +121,19 @@ const Dashboard = () => {
         />
       )}
         <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
-
+        <Flex justifyContent="center" alignItems="center" width="100%" h={'100%'} flexDirection={{ base: 'column', md: 'row' }} gap={4} padding={2}>
+      <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
       <RainBarGraph />
-      <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
+      </Box>
+      {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
+      <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
       <TemperatureGraph />
-      <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
+      </Box>
+      {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
+      <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
       <HumidityGraph />
-
+      </Box>
+    </Flex>
     </Box>
   );
 };

@@ -97,8 +97,8 @@ export default function HumidityGraph() {
       responsive: true,
       scales: {
         y: {
-          min: minHumidity - 5,
-          max: maxHumidity + 5,
+          min: minHumidity - 1,
+          max: maxHumidity + 1,
         },
       },
       plugins: {
