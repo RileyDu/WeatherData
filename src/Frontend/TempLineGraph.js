@@ -33,28 +33,38 @@ export default function TemperatureGraph() {
     };
     return date.toLocaleString('en-US', options);
   };
-  const getBackgroundColor = (temperature) => {
+  // const getBackgroundColor = (temperature) => {
   
-    if (temperature >= 95) {
-      return theme.colors.red[800]; 
-    } else if (temperature >= 89.6) {
-      return theme.colors.orange[800];
-    } else if (temperature >= 86) {
-      return theme.colors.orange[400];
-    } else if (temperature >= 80.6) {
-      return theme.colors.yellow[300];
-    } else if (temperature >= 75.2) {
-      return theme.colors.yellow[400];
-    } else if (temperature >= 69.8) {
-      return theme.colors.green[300]
-    } else if (temperature >= 64.4) {
-      return theme.colors.green[400];
-    } else if (temperature >= 59) {
-      return theme.colors.blue[800];
-    } else {
-      return "blue.400";
-    }
-  };
+  //   if (temperature >= 95) {
+  //     return theme.colors.red[800]; 
+  //   } else if (temperature >= 89.6) {
+  //     return theme.colors.orange[800];
+  //   } else if (temperature >= 86) {
+  //     return theme.colors.orange[400];
+  //   } else if (temperature >= 80.6) {
+  //     return theme.colors.yellow[300];
+  //   } else if (temperature >= 75.2) {
+  //     return theme.colors.yellow[400];
+  //   } else if (temperature >= 69.8) {
+  //     return theme.colors.green[300]
+  //   } else if (temperature >= 64.4) {
+  //     return theme.colors.green[400];
+  //   } else if (temperature >= 59) {
+  //     return theme.colors.green[600];
+  //   } else if (temperature >= 53.6) {
+  //     return theme.colors.green[900];
+  //   } else if (temperature >= 48.2) {
+  //     return theme.colors.blue[100];
+  //   } else if (temperature >= 42.8) {
+  //     return theme.colors.blue[300];
+  //   } else if (temperature >= 37.4) {
+  //     return theme.colors.blue[500];
+  //   } else if (temperature >= 32) {
+  //     return theme.colors.blue[700];
+  //   } else if (temperature >= 26.6) {
+  //     return theme.colors.blue[900];
+  //   }
+  // };
 
   const temperatureData = weatherData.map((dataPoint) => dataPoint.temperature);
   const maxTemp = Math.max(...temperatureData);
@@ -66,8 +76,11 @@ export default function TemperatureGraph() {
       {
         label: 'Temperature',
         data: weatherData.map((dataPoint) => dataPoint.temperature),
-        borderColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.temperature)),
-        backgroundColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.temperature)),
+        // borderColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.temperature)),
+        // backgroundColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.temperature)),
+        borderColor: 'orange',
+        backgroundColor: 'orange',
+        borderWidth: 1,
       },
     ],
   };
