@@ -130,12 +130,14 @@ const Dashboard = () => {
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
       <TemperatureGraph />
       </Box>
-      {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
       <HumidityGraph />
       </Box>
     </Flex>
+      <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
+    <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6}>
       <RainBarGraph />
+      </Box>
     </Box>
   );
 };
