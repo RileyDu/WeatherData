@@ -124,7 +124,7 @@ const Dashboard = () => {
         <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
         <Flex justifyContent="center" alignItems="center" width="100%" h={'100%'} flexDirection={{ base: 'column', md: 'row' }} gap={4} padding={2}>
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
-      <RainBarGraph />
+    <TempBarGraph />
       </Box>
       {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
@@ -135,7 +135,7 @@ const Dashboard = () => {
       <HumidityGraph />
       </Box>
     </Flex>
-    {/* <TempBarGraph /> */}
+      <RainBarGraph />
     </Box>
   );
 };

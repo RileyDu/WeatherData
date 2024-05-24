@@ -88,7 +88,8 @@ export default function HumidityGraph() {
           borderColor: createGradient(ctx, area),
           backgroundColor: 'rgba(0, 0, 0, 0.1)',
           fill: true,
-          tension: 0.7,
+          tension: .1,
+          pointRadius: 0,
         },
       ],
     };

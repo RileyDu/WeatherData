@@ -2,12 +2,9 @@ import { Bar } from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
 import { getWeatherData } from '../Backend/Graphql_helper';
 import { theme } from '@chakra-ui/react';
-
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
-// Register the scales
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
 
 export default function RainGraph() {
   const [weatherData, setWeatherData] = useState([]);
@@ -25,20 +22,8 @@ export default function RainGraph() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const chart = new ChartJS('myChart', {
-      type: 'bar',
-      data: data,
-      options: options
-    });
-  
-    return () => {
-      chart.destroy();
-    };
-  }, []);
-
-  const convertUnixToCST = unixTimestamp => {
-    const date = new Date(unixTimestamp * 1000); // Convert to milliseconds
+  const convertUnixToCST = (unixTimestamp) => {
+    const date = new Date(unixTimestamp * 1000);
     const options = {
       timeZone: 'America/Chicago',
       hour: 'numeric',
@@ -47,27 +32,17 @@ export default function RainGraph() {
     };
     return date.toLocaleString('en-US', options);
   };
-  
+
   const getBackgroundColor = (value) => {
-    if (value >= 0.09) {
-      return theme.colors.blue[900];
-    } else if (value >= 0.08) {
-      return theme.colors.blue[800];
-    } else if (value >= 0.07) {
-      return theme.colors.blue[700];
-    } else if (value >= 0.06) {
-      return theme.colors.blue[600];
-    } else if (value >= 0.05) {
-      return theme.colors.blue[500];
-    } else if (value >= 0.04) {
-      return theme.colors.blue[400];
-    } else if (value >= 0.03) {
-      return theme.colors.blue[300];
-    } else if (value >= 0.02) {
-      return theme.colors.blue[200];
-    } else if (value >= 0.01) {
-      return theme.colors.blue[100];
-    }
+    if (value >= 0.09) return theme.colors.blue[900];
+    if (value >= 0.08) return theme.colors.blue[800];
+    if (value >= 0.07) return theme.colors.blue[700];
+    if (value >= 0.06) return theme.colors.blue[600];
+    if (value >= 0.05) return theme.colors.blue[500];
+    if (value >= 0.04) return theme.colors.blue[400];
+    if (value >= 0.03) return theme.colors.blue[300];
+    if (value >= 0.02) return theme.colors.blue[200];
+    if (value >= 0.01) return theme.colors.blue[100];
   };
 
   const rainfallData = weatherData.map((dataPoint) => dataPoint.rain_15_min_inches);
@@ -85,6 +60,7 @@ export default function RainGraph() {
       },
     ],
   };
+
   const options = {
     responsive: true,
     scales: {
@@ -104,5 +80,5 @@ export default function RainGraph() {
     },
   };
 
-  return <Bar options={options} data={data} />;
+  return <Bar data={data} options={options} />;
 }

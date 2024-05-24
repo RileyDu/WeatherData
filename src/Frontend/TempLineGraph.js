@@ -79,6 +79,8 @@ export default function TemperatureGraph() {
         borderColor: 'orange',
         backgroundColor: 'orange',
         borderWidth: 2,
+        tension: .2,
+        pointRadius: 0,
       },
     ],
   };
