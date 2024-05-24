@@ -82,7 +82,7 @@ const Dashboard = () => {
                   <strong>Timestamp:</strong> {convertUnixToCST(weather.ts)}
                 </Text>
                 <Text>
-                  <strong>Temperature:</strong> {weather.temperature}°C
+                  <strong>Temperature:</strong> {weather.temperature}°F
                 </Text>
                 <Text color={weather.percent_humidity < 85 ? 'green.500' : 'red.500'}>
                   <strong>Humidity:</strong> {weather.percent_humidity}%
@@ -127,13 +127,13 @@ const Dashboard = () => {
       </Box>
       {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
-      <TemperatureGraph />
       </Box>
       {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
       <HumidityGraph />
       </Box>
     </Flex>
+      <TemperatureGraph />
     </Box>
   );
 };

@@ -33,18 +33,26 @@ export default function TemperatureGraph() {
     };
     return date.toLocaleString('en-US', options);
   };
-
   const getBackgroundColor = (temperature) => {
-    if (temperature >= 30) {
-      return "red"; // Hot temperatures
-    } else if (temperature >= 25) {
-      return "orange"; // Warm temperatures
-    } else if (temperature >= 20) {
-      return "yellow"; // Mild temperatures
-    } else if (temperature >= 15) {
-      return "yellowgreen"; // Cool temperatures
+  
+    if (temperature >= 95) {
+      return theme.colors.red[800]; 
+    } else if (temperature >= 89.6) {
+      return theme.colors.orange[800];
+    } else if (temperature >= 86) {
+      return theme.colors.orange[400];
+    } else if (temperature >= 80.6) {
+      return theme.colors.yellow[300];
+    } else if (temperature >= 75.2) {
+      return theme.colors.yellow[400];
+    } else if (temperature >= 69.8) {
+      return theme.colors.green[300]
+    } else if (temperature >= 64.4) {
+      return theme.colors.green[400];
+    } else if (temperature >= 59) {
+      return theme.colors.blue[800];
     } else {
-      return "green"; // Cold temperatures
+      return "blue.400";
     }
   };
 
@@ -72,7 +80,7 @@ export default function TemperatureGraph() {
         max: maxTemp + .1,
         title: {
           display: true,
-          text: 'Temperature (°C)',
+          text: 'Temperature (°F)',
         },
       },
     },
