@@ -90,7 +90,7 @@ const Dashboard = () => {
                 <Text>
                   <strong>Wind Direction:</strong> {weather.wind_direction}°
                 </Text>
-                <Text color={weather.rain_15_min_inches < 0.5 ? 'green.500' : 'red.500'}>
+                <Text color={weather.rain_15_min_inches < 0.01 ? 'green.500' : 'red.500'}>
                   <strong>Rain:</strong> {weather.rain_15_min_inches} inches
                 </Text>
                 <Text>
