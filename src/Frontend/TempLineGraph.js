@@ -103,7 +103,7 @@ export default function TemperatureGraph() {
       },
       title: {
         display: true,
-        text: 'Temperature Over The Past Hour',
+        text: 'Temperature Over Time',
       },
     },
   };
