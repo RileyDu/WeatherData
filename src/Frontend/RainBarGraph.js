@@ -35,10 +35,24 @@ export default function RainGraph() {
       chart.destroy();
     };
   }, []);
+
+  const convertUnixToCST = unixTimestamp => {
+    const date = new Date(unixTimestamp * 1000); // Convert to milliseconds
+    const options = {
+      timeZone: 'America/Chicago',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    };
+    return date.toLocaleString('en-US', options);
+  };
   
 
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: weatherData.map((dataPoint) => convertUnixToCST(dataPoint.ts)),
     datasets: [
       {
         label: 'Rainfall',
