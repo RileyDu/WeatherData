@@ -27,9 +27,6 @@ export default function TemperatureGraph() {
     const date = new Date(unixTimestamp * 1000); // Convert to milliseconds
     const options = {
       timeZone: 'America/Chicago',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
       hour12: true,
