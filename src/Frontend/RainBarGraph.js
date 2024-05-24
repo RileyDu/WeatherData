@@ -1,6 +1,7 @@
 import { Bar } from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
 import { getWeatherData } from '../Backend/Graphql_helper';
+import { theme } from '@chakra-ui/react';
 
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
@@ -50,6 +51,21 @@ export default function RainGraph() {
     return date.toLocaleString('en-US', options);
   };
   
+  const getBackgroundColor = (value) => {
+    if (value > 0.05) {
+      return theme.colors.blue[900];
+    } else if (value > 0.04) {
+      return theme.colors.blue[800];
+    } else if (value > 0.03) {
+      return theme.colors.blue[700];
+    } else if (value > 0.02) {
+      return theme.colors.blue[600];
+    } else if (value > 0.01) {
+      return theme.colors.blue[500];
+    } else {
+      return theme.colors.blue[300];
+    }
+  };
 
   const data = {
     labels: weatherData.map((dataPoint) => convertUnixToCST(dataPoint.ts)),
@@ -57,7 +73,7 @@ export default function RainGraph() {
       {
         label: 'Rainfall',
         data: weatherData.map((dataPoint) => dataPoint.rain_15_min_inches),
-        backgroundColor: '#00008B',
+        backgroundColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.rain_15_min_inches)),
       },
     ],
   };
