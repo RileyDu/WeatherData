@@ -62,10 +62,16 @@ export default function RainGraph() {
       return theme.colors.blue[600];
     } else if (value > 0.01) {
       return theme.colors.blue[500];
+    } else if (value > 0.5) {
+      return theme.colors.blue[400];
     } else {
       return theme.colors.blue[300];
     }
   };
+
+  const rainfallData = weatherData.map((dataPoint) => dataPoint.rain_15_min_inches);
+  const maxRainfall = Math.max(...rainfallData);
+  const minRainfall = Math.min(...rainfallData);
 
   const data = {
     labels: weatherData.map((dataPoint) => convertUnixToCST(dataPoint.ts)),
@@ -77,16 +83,21 @@ export default function RainGraph() {
       },
     ],
   };
-
   const options = {
     responsive: true,
+    scales: {
+      y: {
+        min: minRainfall,
+        max: maxRainfall + 0.01,
+      },
+    },
     plugins: {
       legend: {
         position: 'top',
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Rainfall Over Time',
       },
     },
   };

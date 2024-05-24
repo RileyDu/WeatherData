@@ -37,6 +37,10 @@ export default function TemperatureGraph() {
     return date.toLocaleString('en-US', options);
   };
 
+  const temperatureData = weatherData.map((dataPoint) => dataPoint.temperature);
+  const maxTemp = Math.max(...temperatureData);
+  const minTemp = Math.min(...temperatureData);
+
   const data = {
     labels: weatherData.map((dataPoint) => convertUnixToCST(dataPoint.ts)),
     datasets: [
@@ -51,16 +55,27 @@ export default function TemperatureGraph() {
 
   const options = {
     responsive: true,
+    scales: {
+      y: {
+        min: minTemp - .1,
+        max: maxTemp + .1,
+        title: {
+          display: true,
+          text: 'Temperature (°C)',
+        },
+      },
+    },
     plugins: {
       legend: {
         position: 'top',
       },
       title: {
         display: true,
-        text: 'Temperature in Celcius for the Past Fifty Minutes',
+        text: 'Temperature Over Time',
       },
     },
   };
 
   return <Line options={options} data={data} />;
 }
+
