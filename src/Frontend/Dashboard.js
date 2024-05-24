@@ -6,6 +6,7 @@ import { Box, Heading, Text, Button, useDisclosure, Grid, GridItem, Divider } fr
 import { getWeatherData, editWeatherData } from '../Backend/Graphql_helper';
 import WeatherEditModal from './WeatherEditModal';
 import RainBarGraph from './RainBarGraph';
+import TemperatureGraph from './TempLineGraph';
 
 
 const Dashboard = () => {
@@ -121,6 +122,9 @@ const Dashboard = () => {
         <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
 
       <RainBarGraph />
+      <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} />
+      <TemperatureGraph />
+
     </Box>
   );
 };
