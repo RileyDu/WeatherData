@@ -34,37 +34,35 @@ export default function TemperatureGraph() {
     return date.toLocaleString('en-US', options);
   };
   // const getBackgroundColor = (temperature) => {
-  
   //   if (temperature >= 95) {
-  //     return theme.colors.red[800]; 
+  //     return theme.colors.red[800];
   //   } else if (temperature >= 89.6) {
-  //     return theme.colors.orange[800];
+  //     return theme.colors.red[500];
   //   } else if (temperature >= 86) {
-  //     return theme.colors.orange[400];
+  //     return theme.colors.orange[500];
   //   } else if (temperature >= 80.6) {
-  //     return theme.colors.yellow[300];
+  //     return theme.colors.yellow[500];
   //   } else if (temperature >= 75.2) {
-  //     return theme.colors.yellow[400];
+  //     return theme.colors.yellow[200];
   //   } else if (temperature >= 69.8) {
-  //     return theme.colors.green[300]
+  //     return theme.colors.green[300];
   //   } else if (temperature >= 64.4) {
-  //     return theme.colors.green[400];
-  //   } else if (temperature >= 59) {
   //     return theme.colors.green[600];
-  //   } else if (temperature >= 53.6) {
+  //   } else if (temperature >= 59) {
   //     return theme.colors.green[900];
-  //   } else if (temperature >= 48.2) {
+  //   } else if (temperature >= 53.6) {
   //     return theme.colors.blue[100];
-  //   } else if (temperature >= 42.8) {
+  //   } else if (temperature >= 48.2) {
   //     return theme.colors.blue[300];
-  //   } else if (temperature >= 37.4) {
+  //   } else if (temperature >= 42.8) {
   //     return theme.colors.blue[500];
-  //   } else if (temperature >= 32) {
+  //   } else if (temperature >= 37.4) {
   //     return theme.colors.blue[700];
-  //   } else if (temperature >= 26.6) {
+  //   } else if (temperature >= 32) {
   //     return theme.colors.blue[900];
   //   }
   // };
+  
 
   const temperatureData = weatherData.map((dataPoint) => dataPoint.temperature);
   const maxTemp = Math.max(...temperatureData);
@@ -80,7 +78,7 @@ export default function TemperatureGraph() {
         // backgroundColor: weatherData.map((dataPoint) => getBackgroundColor(dataPoint.temperature)),
         borderColor: 'orange',
         backgroundColor: 'orange',
-        borderWidth: 1,
+        borderWidth: 2,
       },
     ],
   };

@@ -8,6 +8,7 @@ import WeatherEditModal from './WeatherEditModal';
 import RainBarGraph from './RainBarGraph';
 import TemperatureGraph from './TempLineGraph';
 import HumidityGraph from './HumidityGradientGraph';
+import TempBarGraph from './TempBarGraph';
 
 
 const Dashboard = () => {
@@ -127,13 +128,14 @@ const Dashboard = () => {
       </Box>
       {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
+      <TemperatureGraph />
       </Box>
       {/* <Divider mb={4} mt={8} borderColor='black' borderWidth={2} borderRadius={4} /> */}
       <Box shadow="lg" borderWidth="3px" background={'gray.100'} borderRadius={6} flex={1}>
       <HumidityGraph />
       </Box>
     </Flex>
-      <TemperatureGraph />
+    {/* <TempBarGraph /> */}
     </Box>
   );
 };
